@@ -1,0 +1,263 @@
+.border {
+  border: 2px solid red;
+}
+
+.shit {
+  border: 2px solid red;
+  height: 1000px;
+  background: repeating-linear-gradient(
+    45deg,
+    red,
+    red 5px,
+    transparent 5px,
+    transparent 20px
+  );
+}
+
+* {
+  color: inherit;
+  font-family: unset;
+  text-decoration: unset;
+}
+
+/* turn any span.logo class into an Apple logo */
+span.logo {
+  display: inline-block;
+  background: url("res/globalnav_text.svg");
+  background-position: -69px -2px;
+  width: 25px;
+  height: 25px;
+}
+
+span.language {
+  display: inline-block;
+  background: url("res/usa.png");
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 4px;
+}
+
+/* base container, contains everything, min-width = 1024 */
+.base {
+  min-width: 1024px;
+  font-family: "Inter", sans-serif;
+}
+
+/* general container, fixed width */
+.container {
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* wider container, 1024 < width < 1440 */
+.container.wide {
+  width: unset;
+  max-width: 1440px;
+  min-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* helper class for centering children */
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+/* helper class for left/right layouts */
+.parted {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.parted > .right {
+  text-align: right;
+}
+
+/* container for navigation-item li's */
+.navigation {
+  display: flex;
+  position: absolute;
+  top: 83px;
+  height: 36px;
+  width: 980px;
+
+  font-size: 12px;
+  color: white;
+
+  /* recreate apple's background with gradients */
+  border-top: 1px solid #6a6a6a;
+  border-bottom: 1px solid #6a6a6a;
+  border-radius: 4px;
+  background: radial-gradient(
+      circle at center,
+      transparent 0%,
+      transparent 98%,
+      rgba(255, 255, 255, 0.2) 100%
+    ),
+    linear-gradient(#717171, #5e5e5e 50%, #717171 50%, #8d8d8d);
+
+  flex-direction: row;
+  align-items: center;
+  align-content: flex-start;
+}
+
+/* inside .navigation element */
+.navigation-item {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+
+  /* center elements in item */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* separator between navigation-item instances */
+.navigation-item + .navigation-item:before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(255, 255, 255, 0.2), rgb(0, 0, 0, 0.2), rgb(255, 255, 255, 0.2));
+}
+
+.navigation-item a {
+  display: block;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px black, 0px 0.5px 0px #aaa;
+  height: 100%;
+  width: 100%;
+
+  /* center text in anchor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation-item a:hover {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    transparent 70%,
+    rgba(255, 255, 255, 0.1) 100%
+  ), rgb(0,0,0,0.4);
+}
+
+/* input element, contained by a navigation-item */
+.navigation-input {
+  background: url("res/search-light.svg"), rgb(255, 255, 255, 0.1);
+  background-position: 3px 4px;
+  background-repeat: no-repeat;
+  outline: none;
+  
+  border-radius: 50px;
+  border: none;
+
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 20px;
+  padding-right: 0px;
+
+  margin: 0 16px;
+  width: 106px;
+
+  box-shadow: 0 -2px 1px rgb(0,0,0,0.4), 0 2px 1px rgb(255,255,255,0.2);
+  transition-property: background color;
+  transition-duration: 0.3s;
+}
+.navigation-input:focus {
+  width: 170px;
+  background-position: 3px 4px;
+  background: white;
+  color: black;
+}
+
+/* the main display panel */
+.viewport {
+  height: 538px;
+  background: url("res/mountain-climbers.jpg") 50% 100% no-repeat;
+  background-size: 1440px auto;
+
+  text-align: center;
+  color: white;
+  font-weight: 200;
+  font-size: 23px;
+  line-height: 1.8em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewport a:hover {
+  text-decoration: underline;
+}
+
+.viewport h1 {
+  font-size: 54px;
+  font-weight: 100;
+  padding-top: 30px;
+  margin-bottom: 20px;
+}
+
+.viewport h2 {
+  font-size: 28px;
+  font-weight: 200;
+  margin-bottom: 28px;
+}
+
+/* contains .promo elements as a grid */
+.promos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 2px 0;
+  gap: 2px;
+}
+
+/* base settings for each promo */
+.promo {
+  height: 200px;
+  width: 100%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+}
+/* set promo image */
+.promo-1 { background-image: url("res/promo_iphone5s.jpg") }
+.promo-2 { background-image: url("res/promo_iphone5c.jpg") }
+.promo-3 { background-image: url("res/promo_30_years.jpg") }
+.promo-4 { background-image: url("res/promo_supplier_responsibility.jpg") }
+
+/* wrapper for footer, sets paddings */
+.footer {
+  font-size: 10px;
+  color: #6e6e6e;
+  line-height: 3em;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+/* color all footer links */
+.footer a {
+  color: rgb(0, 136, 204);
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* turn list into inline text */
+.links {
+  display: inline-flex;
+  width: max-content;
+}
+.links > * {
+  display: inline;
+}
+.links > * + *::before {
+  content: "|";
+  margin-left: 3px;
+  margin-right: 3px;
+}
